@@ -6,17 +6,28 @@ const valueElt = document.getElementById("value");
 
 let value = 0;
 
+function displayValue() {
+  valueElt.textContent = value;
+  if (value < 0) {
+    valueElt.style.color = "red";
+  } else if (value > 0) {
+    valueElt.style.color = "green";
+  } else {
+    valueElt.style.color = "black";
+  }
+}
+
 function increaseValue() {
   value += 1;
-  valueElt.textContent = value;
+  displayValue();
 }
 function decreaseValue() {
   value -= 1;
-  valueElt.textContent = value;
+  displayValue();
 }
 function resetValue() {
   value = 0;
-  valueElt.textContent = value;
+  displayValue();
 }
 increaseBtn.addEventListener("click", increaseValue);
 decreaseBtn.addEventListener("click", decreaseValue);
